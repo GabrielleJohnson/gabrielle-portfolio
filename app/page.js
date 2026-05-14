@@ -12,7 +12,7 @@ const projects = [
     id: 1,
     title: 'Portfolio',
     summary: 'A personal portfolio website built from scratch, featuring a 3D animated background, smooth scroll animations, a custom cursor, and a working contact form.',
-    description: `This portfolio was designed and built from scratch. It features a live 3D background powered by Spline, smooth scroll animations using GSAP ScrollTrigger, and a fully custom animated cursor. \n The site is structured with a fixed navbar, scrollable content sections covering About, Experience, Projects, and Contact, all layered over the 3D scene.
+    description: `This portfolio was designed and built from scratch. It features a live 3D background powered by Spline, smooth scroll animations using GSAP ScrollTrigger, and a fully custom animated cursor.\n\n The site is structured with a fixed navbar, scrollable content sections covering About, Experience, Projects, and Contact, all layered over the 3D scene.
     \n The contact form includes both client-side and server-side validation, and sends emails directly to my inbox using Nodemailer through a Next.js API route. Project cards open into animated modals with full descriptions and direct GitHub links. The design uses a consistent purple gradient theme with glassmorphism effects, a custom scrollbar, and hover animations throughout.
     \n Built with: Next.js 14, React, GSAP, Spline, Nodemailer, and CSS custom properties.`,
     image: '/images/portfolioImage.png',
