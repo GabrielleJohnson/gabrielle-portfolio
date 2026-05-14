@@ -242,11 +242,22 @@ export default function Home() {
 
         {/* ABOUT */}
         <section className="content-section" id="about">
-          <h2 className="section-title">Hi Everyone!</h2>
+          <h2 className="section-title">Hi I'm Gabrielle!</h2>
           <div className="about-grid">
-            <div className="about-text">
-              <p>Hi, I'm Gabrielle — a Computer Science student passionate about software quality, testing, and building reliable systems. I enjoy finding bugs before users do and making software that just works.</p>
-              <p>When I'm not writing test cases or exploring automation frameworks, I'm learning new technologies and sharpening my development skills.</p>
+          <div className="about-text">
+          <p>
+            QA background. Software Engineer mindset. I build things that work 
+            and I make sure they stay that way.
+          </p>
+          <p>
+            I have a genuine love for web and software development. Finding and 
+            fixing bugs is something I actually enjoy, not just tolerate. I like 
+            understanding how things come together and taking pride in what I ship.
+          </p>
+          <p>
+            Off the clock? Gaming, guitar, photography, family, friends, and whatever 
+            random topic has my attention this week.
+          </p>
               <div className="social-links">
                 <a href="https://github.com/GabrielleJohnson" target="_blank" rel="noopener noreferrer" className="social-btn">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -264,11 +275,11 @@ export default function Home() {
             </div>
             <div className="about-stats">
               <div className="stat">
-                <span className="stat-number">3+</span>
+                <span className="stat-number">1+</span>
                 <span className="stat-label">Years Experience</span>
               </div>
               <div className="stat">
-                <span className="stat-number">QA</span>
+                <span className="stat-number">Software Engineer</span>
                 <span className="stat-label">Specialization</span>
               </div>
               <div className="stat">
@@ -325,7 +336,7 @@ export default function Home() {
 
         {/* CONTACT */}
         <section className="content-section" id="contact">
-          <h2 className="section-title">Lets Connect!</h2>
+          <h2 className="section-title">Let's Connect!</h2>
           <p className="contact-intro">
             Got a question, opportunity, or just want to say hi? Email me gabriellejohnson103@gmail.com
             or drop me a message below ☺️
@@ -391,7 +402,7 @@ export default function Home() {
 
         {/* FOOTER */}
         <footer className="footer">
-          <p className="footer-name">© 2025 Gabrielle Johnson</p>
+          <p className="footer-name">© 2026 Gabrielle Johnson</p>
           <div className="footer-icons">
             <a href="https://github.com/GabrielleJohnson" target="_blank" rel="noopener noreferrer" className="footer-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
