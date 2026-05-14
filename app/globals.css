@@ -649,8 +649,11 @@ html, body, * {
 .modal-description {
     font-family: var(--font-body);
     font-size: 0.95rem;
-    line-height: 1.8;
+    line-height: 1.9;
     opacity: 0.75;
+    text-align: justify;
+    text-indent: 1.5rem;
+    white-space: pre-line;
 }
 
 .modal-github-btn {
