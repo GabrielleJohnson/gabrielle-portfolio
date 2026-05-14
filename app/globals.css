@@ -1,0 +1,675 @@
+/* ─── Design tokens ────────────────────────────────────────── */
+:root {
+  --grad: linear-gradient(45deg, #6C27F5, #2a2dcc, #5715c2);
+  --purple: #6C27F5;
+  --navbar-h: 70px;          /* slimmer navbar */
+  --font-main: "Changa One", sans-serif;
+  --font-body: sans-serif;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(108, 39, 245, 0.35);
+  --card-border-hover: rgba(108, 39, 245, 0.8);
+  --section-bg: rgba(0, 0, 0, 0.55);
+}
+
+/* scroll-margin pushes section into view below the navbar */
+section[id] {
+  scroll-margin-top: var(--navbar-h);
+}
+
+/* ─── Reset ────────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #000;
+  color: white;
+  font-family: var(--font-main);
+  overflow: hidden;
+}
+
+/* ─── Gradient text utility ────────────────────────────────── */
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Fixed spline background ──────────────────────────────── */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.2);
+  z-index: 0;
+}
+
+/* ─── Navbar ───────────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  height: var(--navbar-h);
+  align-items: center;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.logo {
+  font-size: 1.4rem;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 60px;
+}
+
+.menu li a {
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.4s;
+  display: inline-block;
+}
+
+.menu li a:hover {
+  transform: scale(1.2);
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn1 {
+  color: white;
+  padding: 10px 40px;
+  border-radius: 18px;
+  border: none;
+  background: var(--grad);
+  transition: 0.4s;
+  font-family: var(--font-main);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn1:hover {
+  transform: scale(1.1);
+}
+
+/* ─── Scrollable wrapper ───────────────────────────────────── */
+.page-scroll {
+  position: relative;
+  z-index: 5;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: var(--navbar-h);
+  scroll-behavior: smooth;
+}
+
+/* ─── Hero ─────────────────────────────────────────────────── */
+.hero {
+  height: calc(100vh - var(--navbar-h));
+  display: flex;
+  align-items: center;
+  justify-content: top;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.text1 {
+  font-size: 3.5rem;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  opacity: 0.6 !important;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* ─── Content sections ─────────────────────────────────────── */
+.content-section {
+  min-height: 100vh;
+  padding: 80px 10%;
+  background: var(--section-bg);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.section-title {
+  font-size: 2.4rem;
+  margin-bottom: 48px;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── About ────────────────────────────────────────────────── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-text p {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.8;
+  opacity: 0.8;
+}
+
+.about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-left: 2px solid var(--purple);
+  padding-left: 20px;
+}
+
+.stat-number {
+  font-size: 2rem;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+/* ─── Social links ─────────────────────────────────────────── */
+.social-links {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    color: white;
+    text-decoration: none;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    background: var(--card-bg);
+    transition: border-color 0.3s, transform 0.3s, background 0.3s;
+}
+
+.social-btn:hover {
+    border-color: var(--purple);
+    background: rgba(108, 39, 245, 0.1);
+    transform: translateY(-3px) !important;
+}
+
+.social-btn svg {
+    flex-shrink: 0;
+}
+
+/* ─── Experience cards ─────────────────────────────────────── */
+.card {
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  background: var(--card-bg);
+  transition: border-color 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card:hover {
+  border-color: var(--card-border-hover);
+  transform: translateX(6px) !important;
+}
+
+.card-year {
+  font-size: 0.8rem;
+  color: var(--purple);
+  letter-spacing: 2px;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-family: var(--font-main);
+  font-weight: normal;
+  /* fixes the blur issue — gradient text on h3 caused it */
+  color: white;
+}
+
+.card-company {
+  font-size: 0.85rem;
+  opacity: 0.5;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  opacity: 0.75;
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* ─── Contact form ─────────────────────────────────────────── */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 700px;
+}
+
+.contact-intro {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    opacity: 0.7;
+    line-height: 1.8;
+    margin-bottom: 36px;
+    max-width: 500px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.form-group input,
+.form-group textarea {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 14px 18px;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s;
+  resize: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--purple);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  opacity: 0.3;
+}
+
+/* ─── Form validation styles ───────────────────────────────── */
+.input-error {
+    border-color: #e74c3c !important;
+}
+
+.error-msg {
+    font-size: 0.8rem;
+    color: #e74c3c;
+    font-family: var(--font-body);
+    margin-top: 2px;
+}
+
+.success-msg {
+    font-size: 0.9rem;
+    color: #2ecc71;
+    font-family: var(--font-body);
+}
+
+.btn1:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* ─── Scrollbar ────────────────────────────────────────────── */
+.page-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.page-scroll::-webkit-scrollbar-track {
+  background: #000;
+  border-radius: 10px;
+}
+
+.page-scroll::-webkit-scrollbar-thumb {
+  background: var(--grad);
+  border-radius: 10px;
+}
+
+.page-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--purple);
+}
+
+/* ─── Projects grid ────────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.project-card {
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card-bg);
+  transition: border-color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  border-color: var(--card-border-hover);
+  transform: translateY(-6px) !important;
+}
+
+.project-img-placeholder {
+  width: 100%;
+  height: 180px;
+  background: rgba(108, 39, 245, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--card-border);
+  transition: background 0.3s;
+}
+
+.project-card:hover .project-img-placeholder {
+  background: rgba(108, 39, 245, 0.15);
+}
+
+.project-img-placeholder span {
+  font-size: 2.5rem;
+  opacity: 0.2;
+}
+
+/* swap the placeholder div for an img tag when you have screenshots:
+ <img src="your-screenshot.png" class="project-img" alt="Project name" /> */
+.project-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: top;    /* anchors the crop to the top of the image */
+    border-bottom: 1px solid var(--card-border);
+    display: block;
+}
+
+.project-info {
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-info p {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.tag {
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--card-border);
+  color: var(--purple);
+  letter-spacing: 1px;
+  font-family: var(--font-body);
+}
+
+/* ─── Custom cursor ────────────────────────────────────────── */
+html, body, * {
+    cursor: none !important;
+}
+
+.cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--purple);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    will-change: left, top;
+}
+
+.cursor-ring {
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    border: 2px solid rgba(108, 39, 245, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    will-change: left, top;
+    transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+.cursor-ring.hovering {
+    width: 56px;
+    height: 56px;
+    border-color: var(--purple);
+}
+
+/* ─── Footer ───────────────────────────────────────────────── */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 10%;
+    border-top: 1px solid var(--card-border);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.footer-name {
+    font-size: 0.9rem;
+    opacity: 0.5;
+    letter-spacing: 1px;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-icon {
+    color: white;
+    opacity: 0.5;
+    transition: opacity 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.footer-icon:hover {
+    opacity: 1;
+    transform: translateY(-3px) !important;
+}
+
+/* ─── Modal ────────────────────────────────────────────────── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal {
+    background: #0a0a0a;
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 640px;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: var(--purple) #000;
+}
+
+.modal::-webkit-scrollbar {
+    width: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background: var(--purple);
+    border-radius: 10px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--card-border);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.modal-close:hover {
+    background: rgba(108, 39, 245, 0.2);
+    border-color: var(--purple);
+}
+
+.modal-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 20px 20px 0 0;
+    display: block;
+}
+
+.modal-body {
+    padding: 28px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modal-title {
+    font-size: 1.6rem;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-description {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    opacity: 0.75;
+}
+
+.modal-github-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    background: var(--grad);
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    width: fit-content;
+    transition: opacity 0.3s, transform 0.3s;
+    margin-top: 8px;
+}
+
+.modal-github-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-2px) !important;
+}
