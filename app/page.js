@@ -17,7 +17,7 @@ const projects = [
     Built with: Next.js 14, React, GSAP, Spline, Nodemailer, and CSS custom properties.`,
     image: '/images/portfolioImage.png',
     tags: ['Next.js', 'React', 'GSAP', 'Spline', 'Nodemailer', 'CSS'],
-    github: 'https://github.com/YOUR-USERNAME/YOUR-REPO',
+    github: 'https://github.com/GabrielleJohnson/gabrielle-portfolio.git',
   },
   {
     id: 2,
