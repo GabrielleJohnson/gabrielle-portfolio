@@ -229,7 +229,9 @@ export default function Home() {
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <button className="btn1">Resume</button>
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn1">
+          Resume
+        </a>
       </nav>
 
       <div className="page-scroll" ref={scrollRef}>

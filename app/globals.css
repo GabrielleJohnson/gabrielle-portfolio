@@ -116,6 +116,12 @@ body {
   transform: scale(1.1);
 }
 
+a.btn1 {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
 /* ─── Scrollable wrapper ───────────────────────────────────── */
 .page-scroll {
   position: relative;
