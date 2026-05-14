@@ -49,6 +49,7 @@ export default function Home() {
   const [formErrors, setFormErrors] = useState({})
   const [formLoading, setFormLoading] = useState(false)
   const [formSuccess, setFormSuccess] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value })
@@ -78,6 +79,18 @@ export default function Home() {
     }
   }
 
+  const scrollTo = (id) => {
+    const container = scrollRef.current
+    const target = document.getElementById(id)
+    if (!target || !container) return
+    const navHeight = 70
+    const targetPosition = target.getBoundingClientRect().top + container.scrollTop - navHeight
+    container.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+    })
+}
+
   const openModal = (project) => {
     setActiveProject(project)
     setTimeout(() => {
@@ -100,43 +113,33 @@ export default function Home() {
     const dot = cursorDot.current
     const ring = cursorRing.current
 
-    let mouseX = 0, mouseY = 0
-    let ringX = 0, ringY = 0
+    // guard — cursor is hidden on mobile so refs may be null
+    if (dot && ring) {
+        let mouseX = 0, mouseY = 0
+        let ringX = 0, ringY = 0
 
-    window.addEventListener('mousemove', e => {
-      mouseX = e.clientX
-      mouseY = e.clientY
-      dot.style.left = mouseX + 'px'
-      dot.style.top = mouseY + 'px'
-    })
-
-    const loop = () => {
-      ringX += (mouseX - ringX) * 0.12
-      ringY += (mouseY - ringY) * 0.12
-      ring.style.left = ringX + 'px'
-      ring.style.top = ringY + 'px'
-      requestAnimationFrame(loop)
-    }
-    loop()
-
-    const hoverEls = document.querySelectorAll('a, button, .card, .project-card, li')
-    hoverEls.forEach(el => {
-      el.addEventListener('mouseenter', () => ring.classList.add('hovering'))
-      el.addEventListener('mouseleave', () => ring.classList.remove('hovering'))
-    })
-
-    const links = document.querySelectorAll('a[href^="#"]')
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault()
-        const target = document.querySelector(link.getAttribute('href'))
-        if (!target) return
-        container.scrollTo({
-          top: target.offsetTop - 70,
-          behavior: 'smooth'
+        window.addEventListener('mousemove', e => {
+            mouseX = e.clientX
+            mouseY = e.clientY
+            dot.style.left = mouseX + 'px'
+            dot.style.top = mouseY + 'px'
         })
-      })
-    })
+
+        const loop = () => {
+            ringX += (mouseX - ringX) * 0.12
+            ringY += (mouseY - ringY) * 0.12
+            ring.style.left = ringX + 'px'
+            ring.style.top = ringY + 'px'
+            requestAnimationFrame(loop)
+        }
+        loop()
+
+        const hoverEls = document.querySelectorAll('a, button, .card, .project-card, li')
+        hoverEls.forEach(el => {
+            el.addEventListener('mouseenter', () => ring.classList.add('hovering'))
+            el.addEventListener('mouseleave', () => ring.classList.remove('hovering'))
+        })
+    }
 
     gsap.fromTo('.text1',
       { opacity: 0, y: 60 },
@@ -223,16 +226,51 @@ export default function Home() {
       <nav className="navbar">
         <h1 className="logo">Gabrielle Johnson</h1>
         <ul className="menu">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+            <li><a onClick={() => scrollTo('home')}>Home</a></li>
+            <li><a onClick={() => scrollTo('about')}>About</a></li>
+            <li><a onClick={() => scrollTo('experience')}>Experience</a></li>
+            <li><a onClick={() => scrollTo('projects')}>Projects</a></li>
+            <li><a onClick={() => scrollTo('contact')}>Contact</a></li>
         </ul>
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn1">
-          Resume
-        </a>
-      </nav>
+        <div className="nav-right">
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn1">Resume</a>
+            <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+                {menuOpen ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                )}
+            </button>
+        </div>
+        {menuOpen && (
+            <div className="mobile-menu">
+                <a onClick={() => { scrollTo('home'); setMenuOpen(false) }}>Home</a>
+                <a onClick={() => { scrollTo('about'); setMenuOpen(false) }}>About</a>
+                <a onClick={() => { scrollTo('experience'); setMenuOpen(false) }}>Experience</a>
+                <a onClick={() => { scrollTo('projects'); setMenuOpen(false) }}>Projects</a>
+                <a onClick={() => { scrollTo('contact'); setMenuOpen(false) }}>Contact</a>
+            </div>
+        )}
+    </nav>
+
+      {/* Floating resume button — mobile only */}
+      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="resume-fab">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+          </svg>
+          <span>Resume</span>
+      </a>
 
       <div className="page-scroll" ref={scrollRef}>
 
