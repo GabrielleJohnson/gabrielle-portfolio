@@ -71,7 +71,7 @@ const experience = [
   },
   {
     role: 'Volunteer Lab Technician',
-    company: 'Yallahs High School',
+    company: 'Yallahs High School, Yallahs',
     date: 'Sep 2020 - Nov 2020',
     body:
       'Supported students and teachers with computer troubleshooting, e-learning tools, and network maintenance.',
