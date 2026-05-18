@@ -512,28 +512,36 @@ export default function Home() {
             <section className="life-color-band rise">
               <div className="marquee">
                 <div className="marquee-group">
-                  <span>Details</span>
-                  <span>Better feedback loops</span>
-                  <span>Feedback loops</span>
-                  <span>Curious by default</span>
-                  <span>Playful systems</span>
-                  <span>Sharper details</span>
-                  <span>Details</span>
-                  <span>Better feedback loops</span>
-                  <span>Feedback loops</span>
-                  <span>Curious by default</span>
+                 <span>Problem solver</span>
+                 <span>Tech enthusiast</span>
+                 <span>Curious mindset</span>
+                 <span>Fast learner</span>
+                 <span>Detail oriented</span>
+                 <span>Creative thinker</span>
+                 <span>Team player</span>
+                 <span>Adaptable</span>
+                 <span>Logical mind</span>
+                 <span>Always improving</span>
+                 <span>Problem solver</span>
+                 <span>Tech enthusiast</span>
+                 <span>Curious mindset</span>
+                 <span>Fast learner</span>
                 </div>
                 <div className="marquee-group" aria-hidden="true">
-                  <span>Details</span>
-                  <span>Better feedback loops</span>
-                  <span>Feedback loops</span>
-                  <span>Curious by default</span>
-                  <span>Playful systems</span>
-                  <span>Sharper details</span>
-                  <span>Details</span>
-                  <span>Better feedback loops</span>
-                  <span>Feedback loops</span>
-                  <span>Curious by default</span>
+                  <span>Clean code</span>
+                  <span>Debugging mindset</span>
+                  <span>Curious by nature</span>
+                  <span>Continuous learning</span>
+                  <span>System thinker</span>
+                  <span>Creative solutions</span>
+                  <span>Detail driven</span>
+                  <span>Tech focused</span>
+                  <span>Reliable teammate</span>
+                  <span>Growth oriented</span>
+                  <span>Clean code</span>
+                  <span>Debugging mindset</span>
+                  <span>Curious by nature</span>
+                  <span>Continuous learning</span>
                 </div>
               </div>
             </section>
