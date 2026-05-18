@@ -503,8 +503,8 @@ export default function Home() {
                   <span>Learning</span>
                 </div>
                 <div className="photo-stack">
-                  <img src="/images/robot-bg.png" alt="" />
-                  <img src="/images/portfolioImage.png" alt="" />
+                  <img src="/images/shipAtSea.jpeg" alt="" />
+                  <img src="/images/morningSun.jpeg" alt="" />
                 </div>
               </div>
             </section>
