@@ -15,6 +15,10 @@ const spaceMono = Space_Mono({
 export const metadata = {
   title: 'Gabrielle Johnson',
   description: 'Software Engineer Portfolio',
+  icons: {
+    icon: '/GJ.png',
+    apple: '/GJ.png',
+  },
 }
 
 export default function RootLayout({ children }) {
