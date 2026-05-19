@@ -25,7 +25,7 @@ const projects = [
     description:
       'Designed and built as a personal operating system for career storytelling. The site combines a distinctive visual system, GSAP scroll reveals, responsive content sections, project detail modals, and a Next.js API route that sends contact messages through Nodemailer.',
     image: '/images/portfolioImage.png',
-    tags: ['Next.js', 'React', 'GSAP', 'Nodemailer'],
+    tags: ['Next.js', 'React', 'GSAP', 'Nodemailer', 'Three.js'],
     github: 'https://github.com/GabrielleJohnson/gabrielle-portfolio',
   },
   {
