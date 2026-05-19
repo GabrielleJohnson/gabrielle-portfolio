@@ -81,7 +81,7 @@ const experience = [
 const skills = [
   ['Languages', 'Java', 'Python', 'JavaScript', 'SQL', 'PHP'],
   ['Web', 'React', 'Next.js', 'HTML', 'CSS', 'REST APIs'],
-  ['Quality', 'Selenium', 'JUnit', 'Postman', 'Manual Testing', 'Regression'],
+  ['Quality', 'Selenium', 'JUnit', 'Postman', 'Funtional Testing','Manual Testing', 'Regression Testing'],
   ['Tools', 'Git', 'GitHub', 'Jira', 'Jenkins', 'Docker', 'CI/CD', 'Microsoft Office'],
   ['Cloud', 'Google Cloud Digital Leader', 'API Security', 'OWASP'],
 ]
