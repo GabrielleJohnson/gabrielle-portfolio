@@ -101,6 +101,27 @@ const personalNotes = [
   },
 ]
 
+const getPageFromUrl = () => {
+  if (typeof window === 'undefined') return 'work'
+  return new URLSearchParams(window.location.search).get('page') === 'life' ? 'life' : 'work'
+}
+
+const getProjectFromUrl = () => {
+  if (typeof window === 'undefined') return null
+  const projectId = Number(new URLSearchParams(window.location.search).get('project'))
+  return projects.find((project) => project.id === projectId) || null
+}
+
+const updateHistory = ({ page = 'work', project = null, replace = false }) => {
+  if (typeof window === 'undefined') return
+  const url = new URL(window.location.href)
+  url.search = ''
+  if (page === 'life') url.searchParams.set('page', 'life')
+  if (project) url.searchParams.set('project', String(project.id))
+  const method = replace ? 'replaceState' : 'pushState'
+  window.history[method]({ page, projectId: project?.id || null }, '', url)
+}
+
 function SignalOrb() {
   const groupRef = useRef(null)
 
@@ -163,10 +184,12 @@ export default function Home() {
   const [formLoading, setFormLoading] = useState(false)
   const [formSuccess, setFormSuccess] = useState(false)
 
-  const switchPage = (page) => {
+  const switchPage = (page, options = {}) => {
     setActivePage(page)
+    setActiveProject(null)
     setMenuOpen(false)
     scrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' })
+    if (!options.skipHistory) updateHistory({ page })
   }
 
   const scrollTo = (id) => {
@@ -180,7 +203,9 @@ export default function Home() {
 
   const goToContact = () => {
     setActivePage('life')
+    setActiveProject(null)
     setMenuOpen(false)
+    updateHistory({ page: 'life' })
     requestAnimationFrame(() => {
       requestAnimationFrame(() => scrollTo('contact'))
     })
@@ -188,15 +213,17 @@ export default function Home() {
 
   const openModal = (project) => {
     setActiveProject(project)
+    updateHistory({ page: activePage, project })
     requestAnimationFrame(() => {
       if (!modalRef.current) return
       gsap.fromTo(modalRef.current, { opacity: 0, y: 24, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.28, ease: 'power3.out' })
     })
   }
 
-  const closeModal = () => {
+  const closeModal = (options = {}) => {
     if (!modalRef.current) {
       setActiveProject(null)
+      if (!options.skipHistory) updateHistory({ page: activePage, replace: true })
       return
     }
     gsap.to(modalRef.current, {
@@ -205,7 +232,10 @@ export default function Home() {
       scale: 0.97,
       duration: 0.18,
       ease: 'power2.in',
-      onComplete: () => setActiveProject(null),
+      onComplete: () => {
+        setActiveProject(null)
+        if (!options.skipHistory) updateHistory({ page: activePage, replace: true })
+      },
     })
   }
 
@@ -241,6 +271,29 @@ export default function Home() {
       setFormLoading(false)
     }
   }
+
+  useEffect(() => {
+    const syncFromUrl = () => {
+      const page = getPageFromUrl()
+      const project = getProjectFromUrl()
+      setActivePage(page)
+      setActiveProject(project)
+      setMenuOpen(false)
+      requestAnimationFrame(() => {
+        scrollRef.current?.scrollTo({ top: 0, behavior: 'auto' })
+      })
+    }
+
+    syncFromUrl()
+    window.history.replaceState(
+      { page: getPageFromUrl(), projectId: getProjectFromUrl()?.id || null },
+      '',
+      window.location.href,
+    )
+    window.addEventListener('popstate', syncFromUrl)
+
+    return () => window.removeEventListener('popstate', syncFromUrl)
+  }, [])
 
   useEffect(() => {
     const container = scrollRef.current
