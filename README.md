@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gabrielle Johnson Portfolio
+
+A personal portfolio for Gabrielle Johnson, built to present software engineering work, QA experience, technical skills, and a more personal Life section in one responsive Next.js application.
+
+The site combines a custom visual system, animated page transitions, project detail modals, responsive mobile navigation, and a server-backed contact form.
+
+## Features
+
+- Work and Life page views with browser history support
+- Responsive hamburger navigation for mobile
+- Project showcase cards with centered images for desktop and mobile
+- Project detail modals with responsive image handling
+- Experience, skills, resume, GitHub, and LinkedIn sections
+- Contact form with validation and email delivery through Nodemailer
+- GSAP scroll animations and custom cursor interactions
+- Three.js hero visual built with React Three Fiber
+
+## Tech Stack
+
+- Next.js 16
+- React 19
+- CSS
+- GSAP
+- Three.js
+- React Three Fiber
+- Drei
+- Nodemailer
+
+## Project Structure
+
+```text
+app/
+  api/contact/route.js   Contact form API route
+  globals.css            Global styles and responsive layout
+  layout.js              App metadata, fonts, and root layout
+  page.js                Main portfolio experience
+public/
+  images/                Portfolio and section images
+  resume.pdf             Resume/CV file
+```
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The contact form uses Gmail SMTP through Nodemailer. Create a `.env.local` file with:
 
-## Learn More
+```env
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-app-password
+```
 
-To learn more about Next.js, take a look at the following resources:
+Use a Gmail app password instead of your regular account password.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Available Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+```
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project can be deployed on Vercel or any platform that supports Next.js. Make sure the email environment variables are configured in the hosting provider before enabling the contact form in production.
