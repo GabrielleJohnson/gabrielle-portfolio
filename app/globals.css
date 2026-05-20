@@ -994,8 +994,26 @@ section[id] {
   line-height: 1.7;
 }
 
-.modal-body .primary-btn {
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.modal-actions .primary-btn,
+.modal-actions .ghost-btn {
   width: fit-content;
+}
+
+.project-status {
+  width: fit-content;
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  background: rgba(24, 199, 166, 0.14);
+  color: var(--green-dark);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
 }
 
 html,
@@ -1226,7 +1244,9 @@ body,
     line-height: 1;
   }
 
-  .modal-body .primary-btn {
+  .modal-actions .primary-btn,
+  .modal-actions .ghost-btn,
+  .project-status {
     width: 100%;
   }
 

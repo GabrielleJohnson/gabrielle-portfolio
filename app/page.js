@@ -27,30 +27,29 @@ const projects = [
     image: '/images/portfolioImage.png',
     tags: ['Next.js', 'React', 'GSAP', 'Nodemailer', 'Three.js'],
     github: 'https://github.com/GabrielleJohnson/gabrielle-portfolio',
+    live: 'https://gabrielle-portfolio-six.vercel.app',
   },
   {
     id: 2,
-    title: 'QA Automation Lab',
-    kicker: 'Testing workflow',
+    title: 'IssueFlow',
+    kicker: 'In progress',
     summary:
-      'A testing-focused project space for API checks, regression cases, and Selenium-style automation practice.',
+      'IssueFlow is a modern QA-focused issue tracking platform designed to simplify bug reporting, test case management, and team collaboration for developers and testers. Currently in progress.',
     description:
-      'A practical QA workspace for documenting test cases, validating REST endpoints, and practicing repeatable regression checks. It reflects Gabrielle\'s bridge between quality assurance and software engineering.',
+      'IssueFlow helps teams efficiently track defects, manage testing workflows, and streamline communication through a clean and intuitive interface. This project is currently in progress and will be linked once it is ready to publish.',
     image: '/images/inProgressImage.png',
-    tags: ['Selenium', 'Postman', 'JUnit', 'REST APIs'],
-    github: 'https://github.com/GabrielleJohnson',
+    tags: ['In Progress'],
   },
   {
     id: 3,
-    title: 'Nature\'s Beauty',
-    kicker: 'Responsive web build',
+    title: 'DevLens',
+    kicker: 'Coming soon',
     summary:
-      'A responsive website concept focused on clean layout, accessible content, and approachable visual design.',
+      'DevLens is a modern developer productivity dashboard that visualizes coding activity, GitHub insights, and personal development tools in one clean interface. Coming soon.',
     description:
-      'Built as a self-directed web development project, this site focused on responsive structure, content hierarchy, visual polish, and accessible presentation for a small brand experience.',
+      'DevLens helps developers track repositories, monitor coding progress, and stay organized through interactive dashboards, analytics, and productivity-focused features. This project is coming soon and will be linked after it is published.',
     image: '/images/comingSoonImage.png',
-    tags: ['HTML', 'CSS', 'JavaScript', 'UX'],
-    github: 'https://github.com/GabrielleJohnson',
+    tags: ['Coming Soon'],
   },
 ]
 
@@ -168,6 +167,17 @@ function LinkedinIcon() {
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
     </svg>
+  )
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <span>{'\u00A9'} 2026 Gabrielle Johnson. All Rights Reserved.</span>
+      <a href={links.email}>gabriellejohnson103@gmail.com</a>
+      <a href={links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href={links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </footer>
   )
 }
 
@@ -541,10 +551,7 @@ export default function Home() {
               </div>
             </section>
 
-            <footer className="footer">
-              <span> &#169; 2026 Gabrielle Johnson. All Rights Reserved.</span>
-              <a href={links.email}>gabriellejohnson103@gmail.com</a>
-            </footer>
+            <Footer />
           </>
         ) : (
           <>
@@ -650,11 +657,7 @@ export default function Home() {
               </form>
             </section>
 
-            <footer className="footer">
-              <span>© 2026 Gabrielle Johnson. All Rights Reserved.</span>
-              <a href={links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href={links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            </footer>
+            <Footer />
           </>
         )}
       </main>
@@ -671,7 +674,17 @@ export default function Home() {
               <div className="tag-row">
                 {activeProject.tags.map((tag) => <small key={tag}>{tag}</small>)}
               </div>
-              <a className="primary-btn" href={activeProject.github} target="_blank" rel="noopener noreferrer">Open GitHub</a>
+              <div className="modal-actions">
+                {activeProject.live && (
+                  <a className="primary-btn" href={activeProject.live} target="_blank" rel="noopener noreferrer">Open Live Site</a>
+                )}
+                {activeProject.github && (
+                  <a className="ghost-btn" href={activeProject.github} target="_blank" rel="noopener noreferrer">Open GitHub</a>
+                )}
+                {!activeProject.live && !activeProject.github && (
+                  <span className="project-status">{activeProject.kicker}</span>
+                )}
+              </div>
             </div>
           </article>
         </div>
