@@ -563,7 +563,6 @@ section[id] {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   gap: clamp(34px, 6vw, 90px);
-  border-top: 1px solid var(--line);
 }
 
 .sticky-heading {
