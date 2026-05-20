@@ -201,6 +201,16 @@ export default function Home() {
     setMenuOpen(false)
   }
 
+  const goToSection = (page, id) => {
+    setActivePage(page)
+    setActiveProject(null)
+    setMenuOpen(false)
+    updateHistory({ page })
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => scrollTo(id))
+    })
+  }
+
   const goToContact = () => {
     setActivePage('life')
     setActiveProject(null)
@@ -394,14 +404,10 @@ export default function Home() {
           <div className="mobile-menu">
             <button onClick={() => switchPage('work')}>Work</button>
             <button onClick={() => switchPage('life')}>Life</button>
-            {activePage === 'work' && (
-              <>
-                <button onClick={() => scrollTo('projects')}>Projects</button>
-                <button onClick={() => scrollTo('experience')}>Experience</button>
-                <button onClick={() => scrollTo('skills')}>Skills</button>
-              </>
-            )}
-            {activePage === 'life' && <button onClick={() => scrollTo('contact')}>Contact</button>}
+            <button onClick={() => goToSection('work', 'projects')}>Projects</button>
+            <button onClick={() => goToSection('work', 'experience')}>Experience</button>
+            <button onClick={() => goToSection('work', 'skills')}>Skills</button>
+            <button onClick={() => goToSection('life', 'contact')}>Contact</button>
           </div>
         )}
       </nav>
