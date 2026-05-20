@@ -973,8 +973,10 @@ section[id] {
 .modal > img {
   width: 100%;
   height: 270px;
-  object-fit: cover;
-  object-position: top;
+  object-fit: contain;
+  object-position: center;
+  padding: 14px;
+  background: var(--paper);
   border-bottom: 1px solid var(--ink);
 }
 
@@ -1200,6 +1202,33 @@ body,
 
   .project-card {
     min-height: auto;
+  }
+
+  .modal-overlay {
+    align-items: start;
+    padding: 14px;
+    overflow-y: auto;
+  }
+
+  .modal {
+    width: 100%;
+    max-height: none;
+    margin: 18px 0;
+    box-shadow: 6px 6px 0 var(--green);
+  }
+
+  .modal > img {
+    height: clamp(190px, 58vw, 260px);
+    padding: 12px;
+  }
+
+  .modal-body h2 {
+    font-size: clamp(1.7rem, 8vw, 2.2rem);
+    line-height: 1;
+  }
+
+  .modal-body .primary-btn {
+    width: 100%;
   }
 
   .skill-band {
