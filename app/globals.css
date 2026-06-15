@@ -499,7 +499,7 @@ section[id] {
   object-fit: contain;
   object-position: center;
   border-bottom: 1px solid var(--ink);
-  background: var(--black);
+  background: var(--paper);
 }
 
 .project-body {
