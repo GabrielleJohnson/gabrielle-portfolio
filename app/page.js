@@ -31,13 +31,13 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Defectly',
+    title: 'Issueflow',
     kicker: 'In progress',
     summary:
-      'Defectly is a modern QA-focused issue tracking platform designed to simplify bug reporting, test case management, and team collaboration for developers and testers. Currently in progress.',
+      'Issueflow is a modern issue tracking platform designed to simplify bug reporting, test case management, and team collaboration for developers and testers. Currently in progress.',
     description:
-      'Defectly helps teams efficiently track defects, manage testing workflows, and streamline communication through a clean and intuitive interface. This project is currently in progress and will be linked once it is ready to publish.',
-    image: '/images/inProgressImage.png',
+      'Issueflow helps teams efficiently track issues, manage testing workflows, and streamline communication through a clean and intuitive interface. This project is currently in progress and will be linked once it is ready to publish.',
+    image: '/images/issueFlow.png',
     tags: ['In Progress'],
   },
   {
