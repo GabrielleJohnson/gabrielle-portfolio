@@ -80,11 +80,12 @@ const experience = [
 ]
 
 const skills = [
-  ['Languages', 'Java', 'Python', 'JavaScript', 'SQL', 'PHP'],
-  ['Web', 'React', 'Next.js', 'HTML', 'CSS', 'REST APIs'],
-  ['Quality', 'Selenium', 'JUnit', 'Postman', 'Funtional Testing','Manual Testing', 'Regression Testing'],
-  ['Tools', 'Git', 'GitHub', 'Jira', 'Jenkins', 'Docker', 'CI/CD', 'Microsoft Office'],
-  ['Cloud', 'Google Cloud Digital Leader', 'API Security', 'OWASP'],
+  ['Programming Languages', 'Java', 'Python', 'JavaScript', 'TypeScript', 'SQL', 'PHP', 'C++'],
+  ['Frontend & Full-Stack', 'React', 'Next.js', 'HTML', 'CSS', 'Tailwind CSS'],
+  ['Databases & ORM', 'PostgreSQL', 'MySQL', 'SQLite', 'Prisma'],
+  ['QA & Testing', 'Manual Testing', 'Functional Testing', 'Regression Testing','API Testing', 'Postman', 'Selenium', 'Playwright', 'TestNG', 'JUnit', 'Allure'],
+  ['Tools & Practices', 'Git', 'GitHub', 'Jira', 'Trello', 'Retrofit', 'OkHttp', 'HTTP', 'REST APIs', 'Agile', 'SDLC', 'Microsoft Office'],
+  ['Cloud & DevOps', 'Google Cloud Platform (GCP)', 'Vercel', 'Neon', 'Docker', 'Jenkins', 'GitHub Actions', 'CI/CD', 'API Security', 'OWASP'],
 ]
 
 const personalNotes = [
