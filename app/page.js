@@ -32,13 +32,15 @@ const projects = [
   {
     id: 2,
     title: 'Issueflow',
-    kicker: 'In progress',
+    kicker: 'Live v1.0.0',
     summary:
-      'Issueflow is a modern issue tracking platform designed to simplify bug reporting, test case management, and team collaboration for developers and testers. Currently in progress.',
+      'A full-stack QA and test management platform that brings bug tracking, test execution, team collaboration, and release readiness into one streamlined workspace.',
     description:
-      'Issueflow helps teams efficiently track issues, manage testing workflows, and streamline communication through a clean and intuitive interface. This project is currently in progress and will be linked once it is ready to publish.',
+      'IssueFlow is a full-stack web application built to simplify how developers and QA testers manage the software testing lifecycle. It combines defect tracking, test case management, test suites, execution runs, requirements traceability, and release readiness analytics in one intuitive platform, Built with Next.js, React, TypeScript, PostgreSQL, and Prisma, IssueFlow features role-based access control, evidence uploads, activity tracking, interactive dashboards, and automated end-to-end testing with Playwright. The application is deployed on Vercel, with its database and private file storage hosted through Neon.',
     image: '/images/issueFlow.png',
-    tags: ['In Progress'],
+    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Playwright', 'Neon'],
+    github: 'https://github.com/GabrielleJohnson/IssueFlow-Project-.git',
+    live: 'https://issue-flow-project.vercel.app',
   },
   {
     id: 3,
